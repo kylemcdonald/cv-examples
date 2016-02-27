@@ -7,29 +7,6 @@ function setup() {
   capture.hide();
 }
 
-// usage: dst = copyImage(src, dst)
-// based on http://jsperf.com/new-array-vs-splice-vs-slice/113
-function copyImage(src, dst) {
-  var n = src.length;
-  if(!dst || dst.length != n) {
-    dst = new src.constructor(n);
-  }
-  while(n--) {
-    dst[n] = src[n];
-  }
-  return dst;
-}
-
-function getRadioValue(name) {
-  var inputs = selectAll('input');
-  for(var i = 0; i < inputs.length; i++) {
-    var x = inputs[i];
-    if(name == x.elt.name && x.elt.checked) {
-      return x.elt.value;
-    }
-  }
-}
-
 var backgroundPixels;
 function resetBackground() {
   backgroundPixels = undefined;

@@ -1,39 +1,46 @@
 <!--
 poll
-- how familiar are you with each of these concepts
-- do you understand how pixels are laid out in an image
+* how familiar are you with each of these concepts
+* do you understand how pixels are laid out in an image
 
 questions
-- can we use <video> and <canvas> for setup?
-- see https://github.com/processing/p5.js/wiki/p5.js-overview#instantiation--namespace
+* can we use <video> and <canvas> for setup?
+* see https://github.com/processing/p5.js/wiki/p5.js-overview
 
 relevant
-- lauren's excellent demo https://gist.github.com/lmccart/2273a047874939ad8ad1
-- more from lauren at https://github.com/lmccart/itp-convo-comp/tree/master/Computer_Vision
-- draw videos into canvas http://p5js.org/examples/examples/Dom_Video_Canvas.php
-- draw videos into dom http://p5js.org/examples/examples/Dom_Video.php
-- get pixels http://p5js.org/examples/examples/Dom_Video_Pixels.php
+* lauren's excellent demo https://gist.github.com/lmccart/2273a047874939ad8ad1
+* more from lauren at https://github.com/lmccart/itp-convo-comp/tree/master/Computer_Vision
+* draw videos into canvas http://p5js.org/examples/examples/Dom_Video_Canvas.php
+* draw videos into dom http://p5js.org/examples/examples/Dom_Video.php
+* get pixels http://p5js.org/examples/examples/Dom_Video_Pixels.php
 -->
 
 <html>
 <head>
   <title>cv-examples</title>
-  <style>body{font-family: sans-serif;}</style>
+  <style>
+  * {font-family: sans-serif;}
+  li {font-size: 150%;}
+  </style>
 </head>
 <body>
   <h1>cv-examples</h1>
   <a href="https://github.com/kylemcdonald/cv-examples">GitHub</a>
 
-  <h2><a href="Thresholding/">Thresholding</a></h2>
-  <p>Simplify the representation of an image.</p>
-
-  <h2><a href="BrightestPoint/">BrightestPoint</a></h2>
-  <p>Tracking the brightest point in video.</p>
-
-  <h2><a href="BackgroundSubtraction/">BackgroundSubtraction</a></h2>
-  <p>Detect presence in video.</p>
-
-  <h2><a href="FrameDifference/">FrameDifference</a></h2>
-  <p>Detect motion in video.</p>
+  <ul>
+    <li><a href="Thresholding/">Thresholding</a></li>
+    <li><a href="BrightestPoint/">BrightestPoint</a></li>
+    <li><a href="ColorDetection/">ColorDetection</a></li>
+    <li><a href="BackgroundSubtraction/">BackgroundSubtraction</a></li>
+    <li><a href="FrameDifference/">FrameDifference</a></li>
+    
+    <li><a href="EdgeDetection/">EdgeDetection</a></li>
+    <li><a href="OpticalFlow/">OpticalFlow</a></li> <!-- really, feature tracking... -->
+    <li><a href="Blur/">Blur</a></li> <!-- do blur + brightest point -->
+    <li><a href="FaceDetection/">FaceDetection</a></li>
+    <li><a href="FaceTracking/">FaceTracking</a></li>
+    <li><a href="MarkerDetection/">MarkerDetection</a></li>
+    <li><a href="BlobDetection/">BlobDetection</a></li>
+  </ul>
 </body>
 </html>

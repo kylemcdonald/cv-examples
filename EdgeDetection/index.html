@@ -1,20 +1,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>DifferenceImage</title>
+  <title>EdgeDetection</title>
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/p5.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.dom.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jsfeat/0.0.8/jsfeat-min.js"></script>
   <script src="../shared/utils.js"></script>
   <style>*{font-family: sans-serif;}</style>
 </head>
 <body>
   <h2><a href="../">cv-examples</a></h2>
-  <h1>FrameDifference</h1>
-  <p>Detect motion in video.</p>
-  <p>
-    <input type="range" id="thresholdAmount" value="25">
-    Motion: <span id="motion">0</span>
-  </p>
+  <h1>EdgeDetection</h1>
+  <p>Find edges using a <a href="https://en.wikipedia.org/wiki/Canny_edge_detector">Canny edge detector</a>.</p>
   <script src="sketch.js"></script>
 </body>
 </html>
