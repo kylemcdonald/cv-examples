@@ -66,6 +66,7 @@ function draw() {
     var brightest = findBrightest(capture);
     var lerpAmount = select("#lerpAmount").value() / 100.;
     var smoothed = smoothPoint(brightest, lerpAmount);
+    // next step to try: reject points that are too far from current
 
     var radius = 8;
     noStroke();

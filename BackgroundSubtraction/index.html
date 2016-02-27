@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DifferenceImage</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/p5.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.dom.min.js"></script>
+  <style>*{font-family: sans-serif;}</style>
+</head>
+<body>
+  <h2><a href="../">cv-examples</a></h2>
+  <h1>BackgroundSubtraction</h1>
+  <p>Detect presence in video.</p>
+  <p>
+    <button onclick="resetBackground()">resetBackground()</button>
+    <input type="radio" name="thresholdType" value="none">No Threshold
+    <input type="radio" name="thresholdType" value="rgb">Brightness (RGB)
+    <input type="radio" name="thresholdType" value="bw">Brightness (any)
+    <input type="range" id="thresholdAmount" value="50">
+  </p>
+  <p>
+    Presence: <span id="presence">0</span>%
+  </p>
+  <script src="sketch.js"></script>
+</body>
+</html>
