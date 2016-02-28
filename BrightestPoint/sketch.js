@@ -64,17 +64,18 @@ function draw() {
   capture.loadPixels();
   if(capture.pixels.length > 0) { // don't forget this!
     var brightest = findBrightest(capture);
-    var lerpAmount = select("#lerpAmount").value() / 100.;
+    var lerpAmount = select("#lerpAmount").value() / 100;
     var smoothed = smoothPoint(brightest, lerpAmount);
     // next step to try: reject points that are too far from current
 
     var radius = 8;
     noStroke();
     fill(255, 0, 0);
-    ellipse(smoothed.x, smoothed.y, radius, radius);
+    ellipse(brightest.x, brightest.y, radius, radius);
 
     noFill();
-    stroke(0, 255, 0);
-    drawTrail(smoothed);
+    strokeWeight(4);
+    stroke(255, 0, 0);
+    drawTrail(brightest);
   }
 }

@@ -12,6 +12,5 @@ function draw() {
   image(capture, 0, 0, w, h);
   capture.loadPixels();
   if(capture.pixels.length > 0) { // don't forget this!
-    
   }
 }

@@ -38,9 +38,9 @@ function draw() {
         for(var x = 0; x < w; x++) {
           // another common type of background thresholding uses absolute difference, like this:
           // var total = Math.abs(pixels[i+0] - backgroundPixels[i+0] > thresholdAmount) || ...
-          var rdiff = (pixels[i+0] - backgroundPixels[i+0] > thresholdAmount);
-          var gdiff = (pixels[i+1] - backgroundPixels[i+1] > thresholdAmount);
-          var bdiff = (pixels[i+1] - backgroundPixels[i+1] > thresholdAmount);
+          var rdiff = Math.abs(pixels[i+0] - backgroundPixels[i+0]) > thresholdAmount;
+          var gdiff = Math.abs(pixels[i+1] - backgroundPixels[i+1]) > thresholdAmount;
+          var bdiff = Math.abs(pixels[i+1] - backgroundPixels[i+1]) > thresholdAmount;
           var anydiff = rdiff || gdiff || bdiff;
           var output = 0;
           if(anydiff) {

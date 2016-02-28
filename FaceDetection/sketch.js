@@ -3,6 +3,7 @@
 // https://inspirit.github.io/jsfeat/sample_haar_face.html
 // also see:
 // https://github.com/mtschirs/js-objectdetect/blob/master/js/objectdetect.frontalcatface.js
+// https://ahprojects.com/projects/cv-dazzle/
 
 var w = 640, h = 480;
 var detector;
@@ -26,7 +27,7 @@ function draw() {
   if(faces) {
     faces.forEach(function (face) {
       var count = face[4];
-      if(count > 1) {
+      if(count > 1) { // try different thresholds
         rect(face[0], face[1], face[2], face[3]);
       }
     })

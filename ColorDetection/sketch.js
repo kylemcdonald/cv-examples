@@ -8,9 +8,24 @@ function setup() {
   capture.hide();
 }
 
+var trailPointsLength = 100;
+var trailPoints = [];
+function drawTrail(nextPoint) {
+  trailPoints.push(nextPoint);
+  if(trailPoints.length > trailPointsLength) {
+    trailPoints.shift();
+  }
+  beginShape();
+  trailPoints.forEach(function (point) {
+    vertex(point.x, point.y);
+  })
+  endShape();
+}
+
 function draw() {
   capture.loadPixels();
   var sampling = false;
+  var sumPosition = createVector(0, 0);
   if(capture.pixels.length > 0) { // don't forget this!
   
     if(mouseIsPressed &&
@@ -36,6 +51,8 @@ function draw() {
         var outputValue = 0;
         if (diff < thresholdAmount) {
           outputValue = 255;
+          sumPosition.x += x;
+          sumPosition.y += y;
           total++;
         }
         pixels[i++] = outputValue; // set red
@@ -44,6 +61,8 @@ function draw() {
         i++; // skip alpha
       }
     }
+    
+    sumPosition.div(total);
     
     var n = w * h;
     var ratio = total / n;
@@ -58,4 +77,10 @@ function draw() {
   noStroke();
   fill(targetColor);
   rect(20, 20, 40, 40);
+  
+  ellipse(sumPosition.x, sumPosition.y, 8, 8);
+  noFill();
+  stroke(targetColor);
+  strokeWeight(8);
+  drawTrail(sumPosition);
 }
