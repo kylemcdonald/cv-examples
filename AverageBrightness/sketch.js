@@ -26,12 +26,8 @@ function draw() {
         i+=4;
       }
     }
-    var avg = total / n;
+    var avg = int(total / n);
     select('#average').elt.innerText = avg;
-    if(avg < threshold) {
-      select('body').elt.style.backgroundColor='pink';
-    } else {
-      select('body').elt.style.backgroundColor='white'
-    }
+    select('body').elt.style.backgroundColor='rgb('+avg+','+avg+','+avg+')';
   }
 }
