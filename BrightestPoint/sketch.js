@@ -64,8 +64,8 @@ function draw() {
   capture.loadPixels();
   if(capture.pixels.length > 0) { // don't forget this!
     var brightest = findBrightest(capture);
-    var lerpAmount = select("#lerpAmount").value() / 100;
-    var smoothed = smoothPoint(brightest, lerpAmount);
+    var smoothingAmount = select("#smoothingAmount").value() / 100;
+    var smoothed = smoothPoint(brightest, smoothingAmount);
     // next step to try: reject points that are too far from current
 
     var radius = 8;
