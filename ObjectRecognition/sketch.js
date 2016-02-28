@@ -8,6 +8,13 @@ function setup() {
   capture.size(w, h);
   capture.hide();
   textAlign(LEFT, TOP);
+  
+  // add your credentials here
+  // to load on startup
+  setupClarifai(
+    '', // clientId
+    '' // clientSecret
+  );
 }
 
 function draw() {
@@ -29,5 +36,5 @@ function draw() {
 function sendPhoto() {
   tagMedia(capture, function(tag) {
     results = tag;
-  })
+  }, 'en'); // try changing the language
 }

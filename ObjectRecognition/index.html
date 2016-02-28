@@ -6,12 +6,15 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.dom.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.3.0/js/canvas-to-blob.min.js"></script>
   <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
-  <style>*{font-family: sans-serif;}</style>
+  <style>
+  *{font-family: sans-serif;}
+  code {font-family: monospace;}
+  </style>
 </head>
 <body>
   <h2><a href="../">cv-examples</a></h2>
   <h1>ObjectRecogntion</h1>
-  <p>Send a photo to Clarifai for tagging.</p>
+  <p>Send a photo to Clarifai for tagging. For this example to work, you need to call <code>setupClarifai(clientId, clientSecret)</code>.</p>
   <p><button onclick="sendPhoto()">sendPhoto()</button></p>
   <script src="clarifai.js"></script>
   <script src="sketch.js"></script>
