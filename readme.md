@@ -1,6 +1,6 @@
 # cv-examples
 
-This repo contains a collection of computer vision examples in JavaScript for use in the browser.
+This repo contains a collection of computer vision examples for p5.js and JavaScript.
 
 You can preview the examples [here](https://kylemcdonald.github.io/cv-examples/).
 
