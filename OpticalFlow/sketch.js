@@ -4,18 +4,13 @@ var cnv;
 var capture;
 var curr_img_pyr, prev_img_pyr, point_count, point_status, prev_xy, curr_xy;
 var w = 640, h = 480;
+var maxPoints = 1000;
 
 function setup() {
   capture = createCapture(VIDEO);
   cnv = createCanvas(w, h);
   capture.size(w, h);
   capture.hide();
-  
-  cnv.mousePressed(function() {
-    curr_xy[point_count<<1] = mouseX;
-    curr_xy[(point_count<<1)+1] = mouseY;
-    point_count++;
-  })
 
   curr_img_pyr = new jsfeat.pyramid_t(3);
   prev_img_pyr = new jsfeat.pyramid_t(3);
@@ -23,9 +18,25 @@ function setup() {
   prev_img_pyr.allocate(w, h, jsfeat.U8_t|jsfeat.C1_t);
   
   point_count = 0;
-  point_status = new Uint8Array(100);
-  prev_xy = new Float32Array(100*2);
-  curr_xy = new Float32Array(100*2);
+  point_status = new Uint8Array(maxPoints);
+  prev_xy = new Float32Array(maxPoints*2);
+  curr_xy = new Float32Array(maxPoints*2);
+}
+
+function keyPressed(key) {
+  for(var i = 0; i < 100; i++) {
+    addPoint(random(width), random(height));
+  }
+}
+
+function mousePressed() {
+  addPoint(mouseX, mouseY);
+}
+
+function addPoint(x, y) {
+  curr_xy[point_count<<1] = x;
+  curr_xy[(point_count<<1)+1] = y;
+  point_count++;
 }
 
 function prune_oflow_points() {
