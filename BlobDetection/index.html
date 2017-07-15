@@ -1,31 +1,38 @@
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>BlobDetection</title>
-  <script src="../libs/p5/p5.js"></script>
-  <script src="../libs/p5/addons/p5.dom.js"></script>
-  <script src="../shared/tracking/tracking.js"></script>
-  <style>
-  *{
-    font-family: sans-serif;
-  }
-  #container{
-    position: relative;
-  }
-  canvas,video{
-    width:100%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0;
-  }
-  </style>
+    <meta charset="UTF-8">
+    <title>BlobDetection</title>
+    <script src="../libs/p5/p5.js"></script>
+    <script src="../libs/p5/addons/p5.dom.js"></script>
+    <script src="../shared/tracking/tracking.js"></script>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        
+        #container {
+            position: relative;
+        }
+        
+        canvas,
+        video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
 </head>
+
 <body>
-  <h2><a href="../">cv-examples</a></h2>
-  <h1>Blob Detection <a href="sketch.js">source</a></h1>
-  <p>Detect connected blobs of color in video. Click a color to track bounding boxes.</p>
-  <script src="sketch.js"></script>
-  <div id="container"></div>
+    <h2><a href="../">cv-examples</a></h2>
+    <h1>Blob Detection <a href="sketch.js">source</a></h1>
+    <p>Detect connected blobs of color in video. Click a color to track bounding boxes.</p>
+    <script src="sketch.js"></script>
+    <div id="container"></div>
 </body>
+
 </html>

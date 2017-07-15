@@ -27,7 +27,7 @@ function draw() {
             }
         }
         var avg = int(total / n);
-        select('#average').elt.innerText = avg;
-        select('body').elt.style.backgroundColor = 'rgb(' + avg + ',' + avg + ',' + avg + ')';
+        select('#average-value').elt.innerText = avg;
+        select('#average-color').elt.style.backgroundColor = 'rgb(' + avg + ',' + avg + ',' + avg + ')';
     }
 }

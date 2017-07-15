@@ -1,16 +1,30 @@
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Empty</title>
-  <script src="../libs/p5/p5.js"></script>
-  <script src="../libs/p5/addons/p5.dom.js"></script>
-  <style>*{font-family: sans-serif;}</style>
+    <meta charset="UTF-8">
+    <title>Empty</title>
+    <script src="../libs/p5/p5.js"></script>
+    <script src="../libs/p5/addons/p5.dom.js"></script>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+        }
+    </style>
 </head>
+
 <body>
-  <h2><a href="../">cv-examples</a></h2>
-  <h1>Average Brightness <a href="sketch.js">source</a></h1>
-  <p>Get the average brightness from the video input.</p>
-  <p id="average"></p>
+    <h2><a href="../">cv-examples</a></h2>
+    <h1>Average Brightness <a href="sketch.js">source</a></h1>
+    <p>Get the average brightness from the video input.</p>
+    <p>
+        <span id="average-color" class="icon"></span>
+        <span id="average-value"></span>
+    </p>
   <script src="sketch.js"></script>
 </body>
 </html>
