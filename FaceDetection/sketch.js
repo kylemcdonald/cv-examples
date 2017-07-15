@@ -14,7 +14,8 @@ var faces;
 
 function setup() {
     createCanvas(w, h);
-    detector = new objectdetect.detector(w, h, 1.2, classifier);
+    var scaleFactor = 1.2;
+    detector = new objectdetect.detector(w, h, scaleFactor, classifier);
     img = loadImage('eniac.jpg', function (img) {
         faces = detector.detect(img.canvas);
     })

@@ -24,6 +24,11 @@ function draw() {
         jsfeat.imgproc.grayscale(capture.pixels, w, h, buffer);
         jsfeat.imgproc.gaussian_blur(buffer, buffer, blurSize, 0);
         jsfeat.imgproc.canny(buffer, buffer, lowThreshold, highThreshold);
+        var n = buffer.rows * buffer.cols;
+        // uncomment the following lines to invert the image
+//        for (var i = 0; i < n; i++) {
+//            buffer.data[i] = 255 - buffer.data[i];
+//        }
         result = jsfeatToP5(buffer, result);
         image(result, 0, 0, 640, 480);
     }

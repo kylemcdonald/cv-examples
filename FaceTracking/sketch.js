@@ -40,6 +40,7 @@ function draw() {
         var mouthLeft = createVector(positions[44][0], positions[44][1]);
         var mouthRight = createVector(positions[50][0], positions[50][1]);
         var smile = mouthLeft.dist(mouthRight);
-        // rect(20, 20, smile * 3, 20);
+        // uncomment the line below to show an estimate of amount "smiling" 
+//        rect(20, 20, smile * 3, 20);
     }
 }

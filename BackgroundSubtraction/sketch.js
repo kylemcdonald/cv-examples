@@ -37,6 +37,7 @@ function draw() {
                     i++; // skip alpha
                 }
             }
+            select('#presence').elt.innerText = 'Not applicable';
         } else if (thresholdType === 'bw') {
             var total = 0;
             for (var y = 0; y < h; y++) {
@@ -60,7 +61,7 @@ function draw() {
             }
             var n = w * h;
             var ratio = total / n;
-            select('#presence').elt.innerText = int(100 * ratio);
+            select('#presence').elt.innerText = int(100 * ratio) + '%';
         } else {
             for (var y = 0; y < h; y++) {
                 for (var x = 0; x < w; x++) {
@@ -73,6 +74,7 @@ function draw() {
                     i++; // skip alpha
                 }
             }
+            select('#presence').elt.innerText = 'Not applicable';
         }
     }
     capture.updatePixels();

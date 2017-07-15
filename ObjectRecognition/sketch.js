@@ -21,14 +21,14 @@ function setup() {
 function draw() {
     image(capture, 0, 0, w, h);
     if (results) {
-        var n = results.classes.length;
+        var n = results.length;
         translate(10, 10);
         var barWidth = 200;
         for (var i = 0; i < n; i++) {
-            var probability = results.probs[i];
-            var category = results.classes[i];
-            rect(0, 0, probability * barWidth, 18);
-            text(category, 2, 2);
+            var value = results[i].value;
+            var name = results[i].name;
+            rect(0, 0, value * barWidth, 18);
+            text(name, 2, 2);
             translate(0, 20);
         }
     }
@@ -38,4 +38,5 @@ function sendPhoto() {
     tagMedia(capture, function (tag) {
         results = tag;
     }, 'en'); // try changing the language
+    console.log('Sent photo...');
 }

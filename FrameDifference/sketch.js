@@ -23,12 +23,13 @@ function draw() {
             thresholdAmount *= 3; // 3 for r, g, b
             for (var y = 0; y < h; y++) {
                 for (var x = 0; x < w; x++) {
-                    // Math.abs is faster than p5 abs
+                    // calculate the differences
                     var rdiff = Math.abs(pixels[i + 0] - previousPixels[i + 0]);
-                    previousPixels[i + 0] = pixels[i + 0];
                     var gdiff = Math.abs(pixels[i + 1] - previousPixels[i + 1]);
-                    previousPixels[i + 1] = pixels[i + 1];
                     var bdiff = Math.abs(pixels[i + 2] - previousPixels[i + 2]);
+                    // copy the current pixels to previousPixels
+                    previousPixels[i + 0] = pixels[i + 0];
+                    previousPixels[i + 1] = pixels[i + 1];
                     previousPixels[i + 2] = pixels[i + 2];
                     var diffs = rdiff + gdiff + bdiff;
                     var output = 0;

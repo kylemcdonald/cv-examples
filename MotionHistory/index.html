@@ -10,7 +10,6 @@
         * {
             font-family: sans-serif;
         }
-
     </style>
 </head>
 
@@ -18,8 +17,9 @@
     <h2><a href="../">cv-examples</a></h2>
     <h1>Motion History <a href="sketch.js">source</a></h1>
     <p>Detect direction of motion. Try stepping out of the video, clicking resetBackground(), and stepping back in. Try different threshold values.</p>
-    <p>Threshold <input type="range" id="thresholdAmount" value="25"></p>
-    <p><button onclick="resetBackground()">resetBackground()</button></p>
+    <p>Threshold: <input type="range" id="thresholdAmount" value="25"></p>
+    <p><input type="checkbox" id="showRaw"/><label for="showRaw">Show raw image</label></p>
+    <p><button onclick="resetBackground()">Reset Background</button></p>
     <script src="sketch.js"></script>
 </body>
 

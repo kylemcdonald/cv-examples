@@ -6,68 +6,61 @@
 // if you don't set a language, your browser might set
 // "Accept-Language" headers on your behalf.
 
-var accessToken;
+var app;
 
-function setupClarifai(clientId, clientSecret) {
-    if (!clientId || !clientSecret) {
-        console.warn('setupClarifai(clientId, clientSecret): ' +
+function setupClarifai(apiKey) {
+    if (!apiKey) {
+        console.warn('setupClarifai(apiKey): ' +
             'Empty arguments. First create an account at https://developer.clarifai.com/accounts/signup/ and ' +
-            'add an application at https://developer.clarifai.com/applications/ then ' +
-            'call setupClarifai() with credentials before tagging images.');
+            'click "Create API Key" at https://developer.clarifai.com/applications/ then ' +
+            'call setupClarifai() with the API Key before tagging images.');
         return;
     }
-    $.ajax({
-            method: 'POST',
-            url: 'https://api.clarifai.com/v1/token/',
-            data: {
-                'grant_type': 'client_credentials',
-                'client_id': clientId,
-                'client_secret': clientSecret
-            }
-        })
-        .done(function (data) {
-            accessToken = data.access_token;
-            console.log(data);
-        });
+    app = new Clarifai.App({
+        apiKey: apiKey
+    });
 }
 
 function tagUrl(url, cb, language) {
-    var headers = {
-        'Authorization': 'Bearer ' + accessToken
-    };
     if (language) {
         headers['Accept-Language'] = language;
     }
-    $.ajax({
-            url: 'https://api.clarifai.com/v1/tag/?url=' + url,
-            headers: headers
-        })
-        .done(function (data) {
-            cb(data.results[0].result.tag);
-        });
+    app.models.predict(Clarifai.GENERAL_MODEL, url).then(
+        function (response) {
+            console.log(response);
+            cb(response.outputs[0].data.concepts);
+        },
+        function (err) {
+            console.error(err);
+        }
+    );
+}
+
+function canvasToBase64(cnv, imageType, cb) {
+    cnv.toBlob(function (blob) {
+        var reader = new window.FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = function () {
+            var base64data = reader.result.split(',')[1];
+            cb(base64data);
+        }
+    }, imageType);
 }
 
 function tagCanvas(cnv, cb, language) {
-    cnv.toBlob(function (blob) {
-        var fd = new FormData();
-        fd.append('encoded_data', blob);
-        var headers = {
-            'Authorization': 'Bearer ' + accessToken
-        };
-        if (language) {
-            headers['Accept-Language'] = language;
-        }
-        $.ajax({
-            type: 'POST',
-            url: 'https://api.clarifai.com/v1/tag/',
-            headers: headers,
-            data: fd,
-            processData: false,
-            contentType: false
-        }).done(function (data) {
-            cb(data.results[0].result.tag);
-        });
-    }, 'image/jpeg');
+    canvasToBase64(cnv, 'image/jpeg', function (data) {
+        app.models.predict(Clarifai.GENERAL_MODEL, {
+            base64: data
+        }).then(
+            function (response) {
+                console.log(response);
+                cb(response.outputs[0].data.concepts);
+            },
+            function (err) {
+                console.error(err);
+            }
+        );
+    });
 }
 
 function tagMedia(media, cb, language) {

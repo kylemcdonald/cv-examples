@@ -102,7 +102,8 @@ function draw() {
         }
     }
 
-    // uncomment to view the raw motion history image
-    // capture.updatePixels();
-    // image(capture, 0, 0, 640, 480);
+    if (select('#showRaw').checked()) {
+        capture.updatePixels();
+        image(capture, 0, 0, 640, 480);
+    }
 }

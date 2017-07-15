@@ -17,16 +17,15 @@
     <h2><a href="../">cv-examples</a></h2>
     <h1>Background Subtraction <a href="sketch.js">source</a></h1>
     <p>Detect presence in video. Step outside of the video, press resetBackground(), and step back in. Try different thresholding types and levels.</p>
+    <p><button onclick="resetBackground()">Reset Background</button></p>
     <p>
-        <button onclick="resetBackground()">resetBackground()</button>
+        Mode:
         <input type="radio" name="thresholdType" value="none">No Threshold
         <input type="radio" name="thresholdType" value="rgb">Brightness (RGB)
-        <input type="radio" name="thresholdType" value="bw">Brightness (any)
-        <input type="range" id="thresholdAmount" value="50">
+        <input type="radio" name="thresholdType" value="bw">Brightness (B&amp;W)
     </p>
-    <p>
-        Presence: <span id="presence">0</span>%
-    </p>
+    <p>Threshold: <input type="range" id="thresholdAmount" value="50"></p>
+    <p>Presence: <span id="presence">0</span></p>
     <script src="sketch.js"></script>
 </body>
 

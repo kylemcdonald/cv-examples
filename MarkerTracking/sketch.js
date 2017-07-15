@@ -7,7 +7,7 @@ var w = 640,
 var raster, param, pmat, resultMat, detector;
 
 function setup() {
-    pixelDensity(1); // this makes the internal canvas smaller 
+    pixelDensity(1); // this makes the internal p5 canvas smaller 
     capture = createCapture(VIDEO);
     createCanvas(w, h);
     capture.size(w, h);
@@ -47,12 +47,12 @@ function draw() {
         // define a set of 3d vertices
         var q = 1;
         var verts = [
-      vec4.create(-q, -q, 0, 1),
-      vec4.create(q, -q, 0, 1),
-      vec4.create(q, q, 0, 1),
-      vec4.create(-q, q, 0, 1),
-      // vec4.create(0, 0, -2*q, 1) // poke up
-    ];
+          vec4.create(-q, -q, 0, 1),
+          vec4.create(q, -q, 0, 1),
+          vec4.create(q, q, 0, 1),
+          vec4.create(-q, q, 0, 1),
+          // vec4.create(0, 0, -2*q, 1) // poke up
+        ];
 
         // convert that set of vertices from object space to screen space
         var w2 = width / 2,
