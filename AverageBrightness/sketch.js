@@ -8,7 +8,6 @@ function setup() {
   capture.hide();
 }
 
-var threshold = 122;
 function draw() {
   image(capture, 0, 0, w, h);
   capture.loadPixels();

@@ -12,7 +12,7 @@ function setupClarifai(clientId, clientSecret) {
     console.warn('setupClarifai(clientId, clientSecret): ' +
       'Empty arguments. First create an account at https://developer.clarifai.com/accounts/signup/ and '+
       'add an application at https://developer.clarifai.com/applications/ then ' +
-      'call setupClarify() with credentials before tagging images.');
+      'call setupClarifai() with credentials before tagging images.');
     return;
   }
   $.ajax({
@@ -26,6 +26,7 @@ function setupClarifai(clientId, clientSecret) {
   })
   .done(function(data) {
     accessToken = data.access_token;
+    console.log(data);
   });
 }
 
