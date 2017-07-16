@@ -4,9 +4,9 @@ var w = 640,
 
 function setup() {
     capture = createCapture(VIDEO);
-    createCanvas(w, h);
-    capture.size(w, h);
     capture.hide();
+    capture.size(w, h);
+    createCanvas(w, h);
 }
 
 function draw() {

@@ -1,15 +1,15 @@
 var capture;
+var w = 640,
+    h = 480;
 
 function setup() {
     capture = createCapture(VIDEO);
-    createCanvas(640, 480);
-    capture.size(640, 480);
+    createCanvas(w, h);
+    capture.size(w, h);
     capture.hide();
 }
 
 function findBrightest(video) {
-    var w = video.width,
-        h = video.height;
     var brightestValue = 0;
     var brightestPosition = createVector(0, 0);
     var pixels = video.pixels;
@@ -60,7 +60,8 @@ function clearTrail() {
     trailPoints = [];
 }
 
-function draw() {
+var anotherLastPoint;
+function draw() {    
     // this acts as a background() or clear()
     image(capture, 0, 0, 640, 480);
 
@@ -69,10 +70,16 @@ function draw() {
         var brightest = findBrightest(capture);
         
         // first step to try: uncomment the line below to enable smoothing
-//        var smoothingAmount = select("#smoothingAmount").value() / 100.0;
-//        brightest = smoothPoint(brightest, smoothingAmount);
+        var smoothingAmount = select("#smoothingAmount").value() / 100.0;
+        brightest = smoothPoint(brightest, smoothingAmount);
         
         // next step to try: ignore points that are too far from current point
+        if (anotherLastPoint) {
+            var dist = anotherLastPoint.dist(brightest);
+            if (dist > 30) {
+                brightest = anotherLastPoint;
+            }
+        }
 
         var radius = 8;
         noStroke();
@@ -83,5 +90,7 @@ function draw() {
         strokeWeight(4);
         stroke(255, 0, 0);
         drawTrail(brightest);
+        
+        anotherLastPoint = brightest.copy();
     }
 }

@@ -47,11 +47,11 @@ function draw() {
         // define a set of 3d vertices
         var q = 1;
         var verts = [
-          vec4.create(-q, -q, 0, 1),
-          vec4.create(q, -q, 0, 1),
-          vec4.create(q, q, 0, 1),
-          vec4.create(-q, q, 0, 1),
-          // vec4.create(0, 0, -2*q, 1) // poke up
+            vec4.create(-q, -q, 0, 1),
+            vec4.create(q, -q, 0, 1),
+            vec4.create(q, q, 0, 1),
+            vec4.create(-q, q, 0, 1),
+//            vec4.create(0, 0, -2*q, 1) // poke up
         ];
 
         // convert that set of vertices from object space to screen space

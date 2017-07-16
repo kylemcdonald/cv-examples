@@ -1,17 +1,17 @@
 var capture;
+var w = 640,
+    h = 480;
 
 function setup() {
     capture = createCapture(VIDEO);
-    createCanvas(640, 480);
-    capture.size(640, 480);
+    createCanvas(w, h);
+    capture.size(w, h);
     capture.hide();
 }
 
 function draw() {
     capture.loadPixels();
     if (capture.pixels.length > 0) { // don't forget this!
-        var w = capture.width,
-            h = capture.height;
         var i = 0;
         var pixels = capture.pixels;
         var thresholdAmount = select('#thresholdAmount').value();
@@ -29,7 +29,7 @@ function draw() {
                 pixels[i++] = outputValue; // set red
                 pixels[i++] = outputValue; // set green
                 pixels[i++] = outputValue; // set blue
-                i++; // skip alpha
+                i++; // skip alpha                
             }
         }
 

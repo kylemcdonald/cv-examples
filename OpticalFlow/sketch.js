@@ -36,8 +36,9 @@ function draw() {
             vMotionGraph.addSample(flow.flow.v);
 
             strokeWeight(2);
-            flow.flow.zones.forEach((zone) => {
-                stroke(map(zone.u, -step, +step, 0, 255), map(zone.v, -step, +step, 0, 255), 128);
+            flow.flow.zones.forEach(function (zone) {
+                stroke(map(zone.u, -step, +step, 0, 255),
+                       map(zone.v, -step, +step, 0, 255), 128);
                 line(zone.x, zone.y, zone.x + zone.u, zone.y + zone.v);
             })
         }

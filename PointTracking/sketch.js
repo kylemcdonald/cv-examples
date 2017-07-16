@@ -15,8 +15,8 @@ function setup() {
 
     curpyr = new jsfeat.pyramid_t(3);
     prevpyr = new jsfeat.pyramid_t(3);
-    curpyr.allocate(w, h, jsfeat.U8_t | jsfeat.C1_t);
-    prevpyr.allocate(w, h, jsfeat.U8_t | jsfeat.C1_t);
+    curpyr.allocate(w, h, jsfeat.U8C1_t);
+    prevpyr.allocate(w, h, jsfeat.U8C1_t);
 
     pointCount = 0;
     pointStatus = new Uint8Array(maxPoints);
