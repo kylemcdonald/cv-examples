@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ContourDetection-opencvjs</title>
+    <script src="../libs/p5/p5.js"></script>
+    <script src="../libs/p5/addons/p5.dom.js"></script>
+    <script>
+        window.Module = {
+            loaded: false,
+            print: console.log,
+            printErr: function(text) {
+                document.getElementById('status').innerHTML = text;
+                console.error(text);
+            },
+            setStatus: function(text) {
+                document.getElementById('status').innerHTML = text;
+                console.log(text);
+            },
+            onRuntimeInitialized: function() {
+                document.getElementById('status').innerHTML = 'Loaded';
+                this.loaded = true;
+                // it would be better if we created the sketch at this point
+            }
+        };
+    </script>
+    <script async src="cv.js"></script>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2><a href="../">cv-examples</a></h2>
+    <h1>Contour Detection (opencvjs) <a href="sketch.js">source</a></h1>
+    <p>Detect connected bright regions in video.</p>
+    <p>Blur Radius: <input type="range" id="blurRadius" value="50"></p>
+    <p>Threshold: <input type="range" id="threshold" value="50"></p>
+    <p><input type="checkbox" id="showThresholded" /><label for="showThresholded">Show thresholded</label></p>
+    <p>OpenCV Status: <span id="status">Loading OpenCV...</span></p>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
