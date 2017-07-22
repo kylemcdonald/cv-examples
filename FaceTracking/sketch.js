@@ -42,5 +42,9 @@ function draw() {
         var smile = mouthLeft.dist(mouthRight);
         // uncomment the line below to show an estimate of amount "smiling" 
         rect(20, 20, smile * 3, 20);
+        
+//        noStroke();
+//        fill(0, 255, 255);
+//        ellipse(positions[62][0], positions[62][1], 50, 50);
     }
 }

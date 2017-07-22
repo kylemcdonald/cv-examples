@@ -1,10 +1,11 @@
 var capture;
-var targetColor = [255, 255, 255];
+var w = 640,
+    h = 480;
 
 function setup() {
     capture = createCapture(VIDEO);
-    cnv = createCanvas(640, 480);
-    capture.size(640, 480);
+    cnv = createCanvas(w, h);
+    capture.size(w, h);
     capture.hide();
 }
 
@@ -23,6 +24,7 @@ function drawTrail(nextPoint) {
     endShape();
 }
 
+var targetColor = [255, 255, 255];
 function draw() {
     capture.loadPixels();
     var sampling = false;
@@ -74,7 +76,7 @@ function draw() {
         capture.updatePixels();
     }
 
-    image(capture, 0, 0, 640, 480);
+    image(capture, 0, 0, w, h);
 
     noStroke();
     fill(targetColor);

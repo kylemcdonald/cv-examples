@@ -10,12 +10,9 @@ function setup() {
     capture.hide();
     textAlign(LEFT, TOP);
 
-    // add your credentials here
+    // add your API key here
     // to load on startup
-    setupClarifai(
-        '', // clientId
-        '' // clientSecret
-    );
+    setupClarifai('');
 }
 
 function draw() {

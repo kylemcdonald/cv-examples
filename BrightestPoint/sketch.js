@@ -31,7 +31,6 @@ function findBrightest(video) {
 }
 
 var lastPoint;
-
 function smoothPoint(point, amt) {
     if (!lastPoint) {
         lastPoint = point;
@@ -43,7 +42,6 @@ function smoothPoint(point, amt) {
 
 var trailPointsLength = 100;
 var trailPoints = [];
-
 function drawTrail(nextPoint) {
     trailPoints.push(nextPoint);
     if (trailPoints.length > trailPointsLength) {
@@ -61,7 +59,7 @@ function clearTrail() {
 }
 
 var anotherLastPoint;
-function draw() {    
+function draw() {
     // this acts as a background() or clear()
     image(capture, 0, 0, 640, 480);
 
@@ -71,13 +69,13 @@ function draw() {
         
         // first step to try: uncomment the line below to enable smoothing
         var smoothingAmount = select("#smoothingAmount").value() / 100.0;
-        brightest = smoothPoint(brightest, smoothingAmount);
+//        brightest = smoothPoint(brightest, smoothingAmount);
         
         // next step to try: ignore points that are too far from current point
         if (anotherLastPoint) {
             var dist = anotherLastPoint.dist(brightest);
             if (dist > 30) {
-                brightest = anotherLastPoint;
+//                brightest = anotherLastPoint;
             }
         }
 

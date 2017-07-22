@@ -29,7 +29,7 @@ function draw() {
     if (faces) {
         faces.forEach(function (face) {
             var count = face[4];
-            if (count > 1) { // try different thresholds
+            if (count > 4) { // try different thresholds
                 rect(face[0], face[1], face[2], face[3]);
             }
         })

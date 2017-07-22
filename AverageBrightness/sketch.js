@@ -18,8 +18,8 @@ function draw() {
         var i = 0;
         for (var y = 0; y < h; y++) {
             for (var x = 0; x < w; x++) {
-                var r = capture.pixels[i];
-                total += r;
+                var redValue = capture.pixels[i];
+                total += redValue;
                 i += 4;
             }
         }

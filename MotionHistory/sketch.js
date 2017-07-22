@@ -1,9 +1,9 @@
 var capture;
 var motionHistoryImage;
+var w = 640,
+    h = 480;
 
 function setup() {
-    var w = 640,
-        h = 480;
     capture = createCapture(VIDEO);
     createCanvas(w, h);
     capture.size(w, h);
@@ -20,8 +20,6 @@ function draw() {
     image(capture, 0, 0);
     capture.loadPixels();
     if (capture.pixels.length > 0) { // don't forget this!
-        var w = capture.width,
-            h = capture.height;
         if (!backgroundPixels) {
             // copy the camera pixels for storing the background
             backgroundPixels = copyImage(capture.pixels, backgroundPixels);

@@ -1,9 +1,11 @@
 var capture;
+var w = 640,
+    h = 480;
 
 function setup() {
     capture = createCapture(VIDEO);
-    createCanvas(640, 480);
-    capture.size(640, 480);
+    createCanvas(w, h);
+    capture.size(w, h);
     capture.hide();
 }
 
@@ -19,8 +21,6 @@ function draw() {
         if (!backgroundPixels) {
             backgroundPixels = copyImage(capture.pixels, backgroundPixels);
         }
-        var w = capture.width,
-            h = capture.height;
         var i = 0;
         var pixels = capture.pixels;
         var thresholdAmount = select('#thresholdAmount').value() * 255. / 100.;
