@@ -9,7 +9,16 @@ var uMotionGraph, vMotionGraph;
 
 function setup() {
     createCanvas(w, h);
-    capture = createCapture(VIDEO);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     capture.hide();
     flow = new FlowCalculator(step);
     uMotionGraph = new Graph(100, -step / 2, +step / 2);

@@ -14,7 +14,16 @@ function setTarget(r, g, b, range) {
 function setup() {
     var w = 640,
         h = 480;
-    capture = createCapture(VIDEO);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     capture.size(w, h);
     capture.parent('container');
     cnv = createCanvas(w, h);
