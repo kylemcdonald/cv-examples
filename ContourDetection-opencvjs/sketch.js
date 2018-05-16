@@ -13,9 +13,9 @@ function setup() {
         console.log('capture ready.')
     });
     capture.elt.setAttribute('playsinline', '');
-    capture.hide();
     capture.size(w, h);
-    canvas = createCanvas(w, h);
+    createCanvas(w, h);
+    capture.hide();
 }
 
 var captureMat, gray, blurred, thresholded;
