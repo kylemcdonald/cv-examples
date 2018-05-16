@@ -1,12 +1,21 @@
 var capture;
-var w = 640,
-    h = 480;
+var w = 640;
+var h = 480;
 
 function setup() {
-    capture = createCapture(VIDEO);
-    createCanvas(w, h);
-    capture.size(w, h);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     capture.hide();
+    capture.size(w, h);
+    canvas = createCanvas(w, h);
 }
 
 var captureMat, gray, blurred, thresholded;
@@ -80,12 +89,12 @@ function draw() {
                 vertex(x, y);
             }
             endShape(CLOSE);
-            
+
             noFill();
             stroke(255, 255, 255)
             var box = cv.boundingRect(contour);
             rect(box.x, box.y, box.width, box.height);
-            
+
             // these aren't working right now:
             // https://github.com/ucisysarch/opencvjs/issues/30
 //            var minAreaRect = cv.minAreaRect(contour);

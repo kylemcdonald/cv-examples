@@ -7,7 +7,16 @@ var w = 640,
     h = 480;
 
 function setup() {
-    capture = createCapture(VIDEO);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     createCanvas(w, h);
     capture.size(w, h);
     capture.hide();
@@ -17,15 +26,15 @@ function setup() {
 function draw() {
     image(capture, 0, 0, 640, 480);
     capture.loadPixels();
-    if (capture.pixels.length > 0) { // don't forget this!        
+    if (capture.pixels.length > 0) { // don't forget this!
         var blurSize = select('#blurSize').elt.value;
         var lowThreshold = select('#lowThreshold').elt.value;
         var highThreshold = select('#highThreshold').elt.value;
-        
+
         blurSize = map(blurSize, 0, 100, 1, 12);
         lowThreshold = map(lowThreshold, 0, 100, 0, 255);
         highThreshold = map(highThreshold, 0, 100, 0, 255);
-        
+
         jsfeat.imgproc.grayscale(capture.pixels, w, h, buffer);
         jsfeat.imgproc.gaussian_blur(buffer, buffer, blurSize, 0);
         jsfeat.imgproc.canny(buffer, buffer, lowThreshold, highThreshold);

@@ -8,7 +8,16 @@ var w = 640,
 var maxPoints = 1000;
 
 function setup() {
-    capture = createCapture(VIDEO);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     cnv = createCanvas(w, h);
     capture.size(w, h);
     capture.hide();
