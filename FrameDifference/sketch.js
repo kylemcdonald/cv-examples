@@ -1,11 +1,22 @@
 var capture;
 var previousPixels;
+var w = 640;
+var h = 480;
 
 function setup() {
-    capture = createCapture(VIDEO);
-    createCanvas(640, 480);
-    capture.size(640, 480);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     capture.hide();
+    capture.size(w, h);
+    canvas = createCanvas(w, h);
 }
 
 function draw() {
