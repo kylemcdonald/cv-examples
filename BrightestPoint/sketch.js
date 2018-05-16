@@ -1,11 +1,20 @@
 var capture;
-var w = 640,
-    h = 480;
+var w = 640;
+var h = 480;
 
 function setup() {
-    capture = createCapture(VIDEO);
-    createCanvas(w, h);
+    capture = createCapture({
+        audio: false,
+        video: {
+            width: w,
+            height: h
+        }
+    }, function() {
+        console.log('capture ready.')
+    });
+    capture.elt.setAttribute('playsinline', '');
     capture.size(w, h);
+    createCanvas(w, h);
     capture.hide();
 }
 
@@ -66,11 +75,11 @@ function draw() {
     capture.loadPixels();
     if (capture.pixels.length > 0) { // don't forget this!
         var brightest = findBrightest(capture);
-        
+
         // first step to try: uncomment the line below to enable smoothing
         var smoothingAmount = select("#smoothingAmount").value() / 100.0;
 //        brightest = smoothPoint(brightest, smoothingAmount);
-        
+
         // next step to try: ignore points that are too far from current point
         if (anotherLastPoint) {
             var dist = anotherLastPoint.dist(brightest);
@@ -88,7 +97,7 @@ function draw() {
         strokeWeight(4);
         stroke(255, 0, 0);
         drawTrail(brightest);
-        
+
         anotherLastPoint = brightest.copy();
     }
 }
