@@ -4,7 +4,7 @@
  * with other HTML5 objects, including text, hyperlink, image, input, video,
  * audio, and webcam.</p>
  * <p>There is a set of creation methods, DOM manipulation methods, and
- * an extended <a href="#/p5.Element">p5.Element</a> that supports a range of HTML elements. See the
+ * an extended p5.Element that supports a range of HTML elements. See the
  * <a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>
  * beyond the canvas tutorial</a> for a full overview of how this addon works.
  *
@@ -40,16 +40,16 @@
   /**
    * Searches the page for an element with the given ID, class, or tag name (using the '#' or '.'
    * prefixes to specify an ID or class respectively, and none for a tag) and returns it as
-   * a <a href="#/p5.Element">p5.Element</a>. If a class or tag name is given with more than 1 element,
+   * a p5.Element. If a class or tag name is given with more than 1 element,
    * only the first element will be returned.
    * The DOM node itself can be accessed with .elt.
    * Returns null if none found. You can also specify a container to search within.
    *
    * @method select
    * @param  {String} name id, class, or tag name of element to search for
-   * @param  {String|p5.Element|HTMLElement} [container] id, <a href="#/p5.Element">p5.Element</a>, or
+   * @param  {String|p5.Element|HTMLElement} [container] id, p5.Element, or
    *                                             HTML element to search within
-   * @return {p5.Element|null} <a href="#/p5.Element">p5.Element</a> containing node found
+   * @return {Object|p5.Element|null} p5.Element containing node found
    * @example
    * <div ><code class='norender'>
    * function setup() {
@@ -106,7 +106,7 @@
 
   /**
    * Searches the page for elements with the given class or tag name (using the '.' prefix
-   * to specify a class and no prefix for a tag) and returns them as <a href="#/p5.Element">p5.Element</a>s
+   * to specify a class and no prefix for a tag) and returns them as p5.Elements
    * in an array.
    * The DOM node itself can be accessed with .elt.
    * Returns an empty array if none found.
@@ -114,8 +114,8 @@
    *
    * @method selectAll
    * @param  {String} name class or tag name of elements to search for
-   * @param  {String} [container] id, <a href="#/p5.Element">p5.Element</a>, or HTML element to search within
-   * @return {p5.Element[]} Array of <a href="#/p5.Element">p5.Element</a>s containing nodes found
+   * @param  {String} [container] id, p5.Element, or HTML element to search within
+   * @return {Array} Array of p5.Elements containing nodes found
    * @example
    * <div class='norender'><code>
    * function setup() {
@@ -217,7 +217,7 @@
 
   /**
    * Removes all elements created by p5, except any canvas / graphics
-   * elements created by <a href="#/p5/createCanvas">createCanvas</a> or <a href="#/p5/createGraphics">createGraphics</a>.
+   * elements created by createCanvas or createGraphics.
    * Event handlers are removed, and element is removed from the DOM.
    * @method removeElements
    * @example
@@ -260,7 +260,7 @@
    *
    * @method createDiv
    * @param  {String} [html] inner HTML for element created
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createDiv('this is some text');
@@ -275,7 +275,7 @@
    *
    * @method createP
    * @param  {String} [html] inner HTML for element created
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createP('this is some text');
@@ -289,7 +289,7 @@
    *
    * @method createSpan
    * @param  {String} [html] inner HTML for element created
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createSpan('this is some text');
@@ -315,7 +315,7 @@
    * @param  {String} src src path or url for image
    * @param  {String} [alt] alternate text to be used if image does not load
    * @param  {Function} [successCallback] callback to be called once image data is loaded
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createImg('http://p5js.org/img/asterisk-01.png');
@@ -358,7 +358,7 @@
    * @param  {String} html       inner html of link element to display
    * @param  {String} [target]   target where new link should open,
    *                             could be _blank, _self, _parent, _top.
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createA('http://p5js.org/', 'this is a link');
@@ -386,7 +386,7 @@
    * @param  {Number} max maximum value of the slider
    * @param  {Number} [value] default value of the slider
    * @param  {Number} [step] step size for each tick of the slider (if step is set to 0, the slider will move continuously from the minimum to the maximum value)
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div><code>
    * var slider;
@@ -442,7 +442,7 @@
    * @method createButton
    * @param  {String} label label displayed on the button
    * @param  {String} [value] value of the button
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * var button;
@@ -475,7 +475,7 @@
    * @method createCheckbox
    * @param  {String} [label] label displayed after checkbox
    * @param  {boolean} [value] value of the checkbox; checked is true, unchecked is false
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * var checkbox;
@@ -538,7 +538,7 @@
 
   /**
    * Creates a dropdown menu &lt;select&gt;&lt;/select&gt; element in the DOM.
-   * It also helps to assign select-box methods to <a href="#/p5.Element">p5.Element</a> when selecting existing select box
+   * It also helps to assign select-box methods to p5.Element when selecting existing select box
    * @method createSelect
    * @param {boolean} [multiple] true if dropdown should support multiple selections
    * @return {p5.Element}
@@ -647,7 +647,7 @@
    *
    * @method createRadio
    * @param  {String} [divId] the id and name of the created div and input field respectively
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div><code>
    * var radio;
@@ -780,14 +780,14 @@
 
   /**
    * Creates an &lt;input&gt;&lt;/input&gt; element in the DOM for text input.
-   * Use .<a href="#/p5.Element/size">size()</a> to set the display length of the box.
+   * Use .size() to set the display length of the box.
    * Appends to the container node if one is specified, otherwise
    * appends to body.
    *
    * @method createInput
    * @param {String} [value] default value of the input box
    * @param {String} [type] type of text, ie text, password etc. Defaults to text
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * function setup() {
@@ -815,7 +815,7 @@
    * @method createFileInput
    * @param  {Function} [callback] callback function for when a file loaded
    * @param  {String} [multiple] optional to allow multiple files selected
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created DOM element
+   * @return {Object|p5.Element} pointer to p5.Element holding created DOM element
    * @example
    * var input;
    * var img;
@@ -933,7 +933,7 @@
   }
   /**
    * Creates an HTML5 &lt;video&gt; element in the DOM for simple playback
-   * of audio/video. Shown by default, can be hidden with .<a href="#/p5.Element/hide">hide()</a>
+   * of audio/video. Shown by default, can be hidden with .hide()
    * and drawn into canvas using video(). Appends to the container
    * node if one is specified, otherwise appends to body. The first parameter
    * can be either a single string path to a video file, or an array of string
@@ -943,15 +943,15 @@
    * page</a> for further information about supported formats.
    *
    * @method createVideo
-   * @param  {String|String[]} src path to a video file, or array of paths for
+   * @param  {String|Array} src  path to a video file, or array of paths for
    *                             supporting different browsers
-   * @param  {Function} [callback] callback function to be called upon
+   * @param  {Object} [callback] callback function to be called upon
    *                             'canplaythrough' event fire, that is, when the
    *                             browser can play the media, and estimates that
    *                             enough data has been loaded to play the media
    *                             up to its end without having to stop for
    *                             further buffering of content
-   * @return {p5.MediaElement}   pointer to video <a href="#/p5.Element">p5.Element</a>
+   * @return {p5.MediaElement|p5.Element} pointer to video p5.Element
    * @example
    * <div><code>
    * var vid;
@@ -985,13 +985,13 @@
    * @method createAudio
    * @param  {String|String[]} [src] path to an audio file, or array of paths
    *                             for supporting different browsers
-   * @param  {Function} [callback] callback function to be called upon
+   * @param  {Object} [callback] callback function to be called upon
    *                             'canplaythrough' event fire, that is, when the
    *                             browser can play the media, and estimates that
    *                             enough data has been loaded to play the media
    *                             up to its end without having to stop for
    *                             further buffering of content
-   * @return {p5.MediaElement}   pointer to audio <a href="#/p5.Element">p5.Element</a>
+   * @return {p5.MediaElement|p5.Element} pointer to audio p5.Element  /**
    * @example
    * <div><code>
    * var ele;
@@ -1048,15 +1048,15 @@
   /**
    * <p>Creates a new HTML5 &lt;video&gt; element that contains the audio/video
    * feed from a webcam. The element is separate from the canvas and is
-   * displayed by default. The element can be hidden using .<a href="#/p5.Element/hide">hide()</a>. The feed
-   * can be drawn onto the canvas using <a href="#/p5/image">image()</a>.</p>
+   * displayed by default. The element can be hidden using .hide(). The feed
+   * can be drawn onto the canvas using image().</p>
    * <p>More specific properties of the feed can be passing in a Constraints object.
    * See the
    * <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C
    * spec</a> for possible properties. Note that not all of these are supported
    * by all browsers.</p>
    * <p>Security note: A new browser security specification requires that getUserMedia,
-   * which is behind <a href="#/p5/createCapture">createCapture()</a>, only works when you're running the code locally,
+   * which is behind createCapture(), only works when you're running the code locally,
    * or on HTTPS. Learn more <a href='http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>here</a>
    * and <a href='https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>here</a>.</p>
    *
@@ -1064,9 +1064,9 @@
    * @param  {String|Constant|Object}   type type of capture, either VIDEO or
    *                                   AUDIO if none specified, default both,
    *                                   or a Constraints object
-   * @param  {Function}                 [callback] function to be called once
+   * @param  {Function}                 callback function to be called once
    *                                   stream has loaded
-   * @return {p5.Element} capture video <a href="#/p5.Element">p5.Element</a>
+   * @return {Object|p5.Element} capture video p5.Element
    * @example
    * <div class='norender notest'><code>
    * var capture;
@@ -1172,7 +1172,7 @@
    * @method createElement
    * @param  {String} tag tag for the new element
    * @param  {String} [content] html content to be inserted into the element
-   * @return {p5.Element} pointer to <a href="#/p5.Element">p5.Element</a> holding created node
+   * @return {Object|p5.Element} pointer to p5.Element holding created node
    * @example
    * <div class='norender'><code>
    * createElement('h2', 'im an h2 p5.element!');
@@ -1197,7 +1197,7 @@
    * @for p5.Element
    * @method addClass
    * @param  {String} class name of class to add
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div class='norender'><code>
    * var div = createDiv('div');
@@ -1223,8 +1223,7 @@
    *
    * @method removeClass
    * @param  {String} class name of class to remove
-   * @chainable
-   * @example
+   * @return {Object|p5.Element}   * @example
    * <div class='norender'><code>
    * // In this example, a class is set when the div is created
    * // and removed when mouse is pressed. This could link up
@@ -1252,11 +1251,13 @@
   /**
    *
    * Attaches the element  as a child to the parent specified.
-   * Accepts either a string ID, DOM node, or <a href="#/p5.Element">p5.Element</a>.
+   * Accepts either a string ID, DOM node, or p5.Element.
    * If no argument is specified, an array of children DOM nodes is returned.
    *
    * @method child
-   * @returns {Node[]} an array of child nodes
+   * @param  {String|Object|p5.Element} [child] the ID, DOM node, or p5.Element
+   *                         to add to the current element
+   * @return {p5.Element}
    * @example
    * <div class='norender'><code>
    * var div0 = createDiv('this is the parent');
@@ -1274,12 +1275,6 @@
    * var elt = document.getElementById('myChildDiv');
    * div0.child(elt); // use element from page
    * </code></div>
-   */
-  /**
-   * @method child
-   * @param  {String|p5.Element} [child] the ID, DOM node, or <a href="#/p5.Element">p5.Element</a>
-   *                         to add to the current element
-   * @chainable
    */
   p5.Element.prototype.child = function(c) {
     if (typeof c === 'undefined') {
@@ -1305,8 +1300,7 @@
    *
    * @method center
    * @param  {String} [align]       passing 'vertical', 'horizontal' aligns element accordingly
-   * @chainable
-   *
+   * @return {Object|p5.Element} pointer to p5.Element
    * @example
    * <div><code>
    * function setup() {
@@ -1361,7 +1355,9 @@
    *
    * @for p5.Element
    * @method html
-   * @returns {String} the inner HTML of the element
+   * @param  {String} [html] the HTML to be placed inside the element
+   * @param  {boolean} [append] whether to append HTML to existing
+   * @return {Object|p5.Element|String}
    * @example
    * <div class='norender'><code>
    * var div = createDiv('').size(100, 100);
@@ -1371,12 +1367,6 @@
    * var div = createDiv('Hello ').size(100, 100);
    * div.html('World', true);
    * </code></div>
-   */
-  /**
-   * @method html
-   * @param  {String} [html] the HTML to be placed inside the element
-   * @param  {boolean} [append] whether to append HTML to existing
-   * @chainable
    */
   p5.Element.prototype.html = function() {
     if (arguments.length === 0) {
@@ -1398,7 +1388,9 @@
    * of the element in an object.
    *
    * @method position
-   * @returns {Object} the x and y position of the element in an object
+   * @param  {Number} [x] x-position relative to upper left of window
+   * @param  {Number} [y] y-position relative to upper left of window
+   * @return {Object|p5.Element}
    * @example
    * <div><code class='norender'>
    * function setup() {
@@ -1408,12 +1400,6 @@
    *   cnv.position(50, 100);
    * }
    * </code></div>
-   */
-  /**
-   * @method position
-   * @param  {Number} [x] x-position relative to upper left of window
-   * @param  {Number} [y] y-position relative to upper left of window
-   * @chainable
    */
   p5.Element.prototype.position = function() {
     if (arguments.length === 0) {
@@ -1495,7 +1481,11 @@
    *
    * @method style
    * @param  {String} property   property to be set
-   * @returns {String} value of property
+   * @param  {String|Number|p5.Color} [value]   value to assign to property (only String|Number for rotate/translate)
+   * @param  {String|Number|p5.Color} [value2]  position can take a 2nd value
+   * @param  {String|Number|p5.Color} [value3]  translate can take a 2nd & 3rd value
+   * @return {String|Object|p5.Element} value of property, if no value is specified
+   * or p5.Element
    * @example
    * <div><code class='norender'>
    * var myDiv = createDiv('I like pandas.');
@@ -1525,14 +1515,6 @@
    *   myDiv.style('font-size', mouseX + 'px');
    * }
    * </code></div>
-   */
-  /**
-   * @method style
-   * @param  {String} property
-   * @param  {String|Number|p5.Color} value     value to assign to property (only String|Number for rotate/translate)
-   * @param  {String|Number|p5.Color} [value2]  position can take a 2nd value
-   * @param  {String|Number|p5.Color} [value3]  translate can take a 2nd & 3rd value
-   * @chainable
    */
   p5.Element.prototype.style = function(prop, val) {
     var self = this;
@@ -1592,19 +1574,15 @@
    * value of the given attribute, or null if attribute is not set.
    *
    * @method attribute
-   * @return {String} value of attribute
-   *
+   * @param  {String} attr       attribute to set
+   * @param  {String} [value]    value to assign to attribute
+   * @return {String|Object|p5.Element} value of attribute, if no value is
+   *                             specified or p5.Element
    * @example
    * <div class='norender'><code>
    * var myDiv = createDiv('I like pandas.');
    * myDiv.attribute('align', 'center');
    * </code></div>
-   */
-  /**
-   * @method attribute
-   * @param  {String} attr       attribute to set
-   * @param  {String} value      value to assign to attribute
-   * @chainable
    */
   p5.Element.prototype.attribute = function(attr, value) {
     //handling for checkboxes and radios to ensure options get
@@ -1635,7 +1613,7 @@
    *
    * @method removeAttribute
    * @param  {String} attr       attribute to remove
-   * @chainable
+   * @return {Object|p5.Element}
    *
    * @example
    * <div><code>
@@ -1679,7 +1657,8 @@
    * given, or sets the value of the element.
    *
    * @method value
-   * @return {String|Number} value of the element
+   * @param  {String|Number}     [value]
+   * @return {String|Object|p5.Element} value of element if no value is specified or p5.Element
    * @example
    * <div class='norender'><code>
    * // gets the value
@@ -1704,11 +1683,6 @@
    * }
    * </code></div>
    */
-  /**
-   * @method value
-   * @param  {String|Number}     value
-   * @chainable
-   */
   p5.Element.prototype.value = function() {
     if (arguments.length > 0) {
       this.elt.value = arguments[0];
@@ -1725,7 +1699,7 @@
    * Shows the current element. Essentially, setting display:block for the style.
    *
    * @method show
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div class='norender'><code>
    * var div = createDiv('div');
@@ -1742,7 +1716,7 @@
    * Hides the current element. Essentially, setting display:none for the style.
    *
    * @method hide
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div class='norender'><code>
    * var div = createDiv('this is a div');
@@ -1761,18 +1735,14 @@
    * of the element in an object.
    *
    * @method size
-   * @return {Object} the width and height of the element in an object
+   * @param  {Number|Constant} [w] width of the element, either AUTO, or a number
+   * @param  {Number|Constant} [h] height of the element, either AUTO, or a number
+   * @return {Object|p5.Element}
    * @example
    * <div class='norender'><code>
    * var div = createDiv('this is a div');
    * div.size(100, 100);
    * </code></div>
-   */
-  /**
-   * @method size
-   * @param  {Number|Constant} w    width of the element, either AUTO, or a number
-   * @param  {Number|Constant} [h] height of the element, either AUTO, or a number
-   * @chainable
    */
   p5.Element.prototype.size = function(w, h) {
     if (arguments.length === 0) {
@@ -1857,10 +1827,10 @@
   // =============================================================================
 
   /**
-   * Extends <a href="#/p5.Element">p5.Element</a> to handle audio and video. In addition to the methods
-   * of <a href="#/p5.Element">p5.Element</a>, it also contains methods for controlling media. It is not
-   * called directly, but <a href="#/p5.MediaElement">p5.MediaElement</a>s are created by calling <a href="#/p5/createVideo">createVideo</a>,
-   * <a href="#/p5/createAudio">createAudio</a>, and <a href="#/p5/createCapture">createCapture</a>.
+   * Extends p5.Element to handle audio and video. In addition to the methods
+   * of p5.Element, it also contains methods for controlling media. It is not
+   * called directly, but p5.MediaElements are created by calling createVideo,
+   * createAudio, and createCapture.
    *
    * @class p5.MediaElement
    * @constructor
@@ -1948,7 +1918,7 @@
    * Play an HTML5 media element.
    *
    * @method play
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div><code>
    * var ele;
@@ -2001,7 +1971,7 @@
    * Stops an HTML5 media element (sets current time to zero).
    *
    * @method stop
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div><code>
    * //This example both starts
@@ -2065,7 +2035,7 @@
    * Pauses an HTML5 media element.
    *
    * @method pause
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div><code>
    * //This example both starts
@@ -2127,7 +2097,7 @@
    * Set 'loop' to true for an HTML5 media element, and starts playing.
    *
    * @method loop
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div><code>
    * //Clicking the canvas will loop
@@ -2184,7 +2154,7 @@
    * when it reaches the end.
    *
    * @method noLoop
-   * @chainable
+   * @return {Object|p5.Element}
    * @example
    * <div><code>
    * //This example both starts
@@ -2236,7 +2206,7 @@
    *
    * @method autoplay
    * @param {Boolean} autoplay whether the element should autoplay
-   * @chainable
+   * @return {Object|p5.Element}
    */
   p5.MediaElement.prototype.autoplay = function(val) {
     this.elt.setAttribute('autoplay', val);
@@ -2247,8 +2217,9 @@
    * Sets volume for this HTML5 media element. If no argument is given,
    * returns the current volume.
    *
+   * @param {Number}            [val] volume between 0.0 and 1.0
+   * @return {Number|p5.MediaElement} current volume or p5.MediaElement
    * @method volume
-   * @return {Number} current volume
    *
    * @example
    * <div><code>
@@ -2316,11 +2287,6 @@
    * </code>
    * </div>
    */
-  /**
-   * @method volume
-   * @param {Number}            val volume between 0.0 and 1.0
-   * @chainable
-   */
   p5.MediaElement.prototype.volume = function(val) {
     if (typeof val === 'undefined') {
       return this.elt.volume;
@@ -2337,8 +2303,8 @@
    * backward playback and even if they do, playback might not be smooth.)
    *
    * @method speed
-   * @return {Number} current playback speed of the element
-   *
+   * @param {Number} [speed]  speed multiplier for element playback
+   * @return {Number|Object|p5.MediaElement} current playback speed or p5.MediaElement
    * @example
    * <div class='norender notest'><code>
    * //Clicking the canvas will loop
@@ -2400,11 +2366,6 @@
    * }
    * </code></div>
    */
-  /**
-   * @method speed
-   * @param {Number} speed  speed multiplier for element playback
-   * @chainable
-   */
   p5.MediaElement.prototype.speed = function(val) {
     if (typeof val === 'undefined') {
       return this.elt.playbackRate;
@@ -2418,8 +2379,9 @@
    * If an argument is given the current time of the element is set to it.
    *
    * @method time
-   * @return {Number} current time (in seconds)
-   *
+   * @param {Number} [time] time to jump to (in seconds)
+   * @return {Number|Object|p5.MediaElement} current time (in seconds)
+   *                                 or p5.MediaElement
    * @example
    * <div><code>
    * var ele;
@@ -2458,17 +2420,12 @@
    * }
    * </code></div>
    */
-  /**
-   * @method time
-   * @param {Number} time time to jump to (in seconds)
-   * @chainable
-   */
+
   p5.MediaElement.prototype.time = function(val) {
     if (typeof val === 'undefined') {
       return this.elt.currentTime;
     } else {
       this.elt.currentTime = val;
-      return this;
     }
   };
 
@@ -2602,7 +2559,7 @@
    *                             media element will be passed
    *                             in as the argument to the
    *                             callback.
-   * @chainable
+   * @return {Object|p5.MediaElement}
    * @example
    * <div><code>
    * function setup() {
