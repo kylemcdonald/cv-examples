@@ -1,5 +1,7 @@
+// https://kylemcdonald.github.io/cv-examples/
 // more here:
 // http://fhtr.org/JSARToolKit/demos/tests/test2.html
+
 var capture;
 var w = 640,
     h = 480;

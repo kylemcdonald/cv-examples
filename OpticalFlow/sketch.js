@@ -1,3 +1,5 @@
+// https://kylemcdonald.github.io/cv-examples/
+
 var capture;
 var previousPixels;
 var flow;
@@ -23,6 +25,22 @@ function setup() {
     flow = new FlowCalculator(step);
     uMotionGraph = new Graph(100, -step / 2, +step / 2);
     vMotionGraph = new Graph(100, -step / 2, +step / 2);
+}
+
+function copyImage(src, dst) {
+    var n = src.length;
+    if (!dst || dst.length != n) dst = new src.constructor(n);
+    while (n--) dst[n] = src[n];
+    return dst;
+}
+
+function same(a1, a2, stride, n) {
+    for (var i = 0; i < n; i += stride) {
+        if (a1[i] != a2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function draw() {

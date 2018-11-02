@@ -1,3 +1,5 @@
+// https://kylemcdonald.github.io/cv-examples/
+
 var capture;
 var motionHistoryImage;
 var w = 640,
@@ -23,6 +25,13 @@ var backgroundPixels;
 
 function resetBackground() {
     backgroundPixels = undefined;
+}
+
+function copyImage(src, dst) {
+    var n = src.length;
+    if (!dst || dst.length != n) dst = new src.constructor(n);
+    while (n--) dst[n] = src[n];
+    return dst;
 }
 
 function draw() {

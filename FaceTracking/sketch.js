@@ -1,4 +1,6 @@
+// https://kylemcdonald.github.io/cv-examples/
 // https://github.com/kylemcdonald/AppropriatingNewTechnologies/wiki/Week-2
+
 var capture;
 var tracker
 var w = 640,
@@ -22,7 +24,7 @@ function setup() {
     colorMode(HSB);
 
     tracker = new clm.tracker();
-    tracker.init(pModel);
+    tracker.init();
     tracker.start(capture.elt);
 }
 
@@ -50,10 +52,11 @@ function draw() {
         var mouthRight = createVector(positions[50][0], positions[50][1]);
         var smile = mouthLeft.dist(mouthRight);
         // uncomment the line below to show an estimate of amount "smiling"
-        rect(20, 20, smile * 3, 20);
+        // rect(20, 20, smile * 3, 20);
 
-//        noStroke();
-//        fill(0, 255, 255);
-//        ellipse(positions[62][0], positions[62][1], 50, 50);
+        // uncomment for a surprise
+        // noStroke();
+        // fill(0, 255, 255);
+        // ellipse(positions[62][0], positions[62][1], 50, 50);
     }
 }

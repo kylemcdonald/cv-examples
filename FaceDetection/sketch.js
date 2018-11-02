@@ -1,3 +1,5 @@
+// https://kylemcdonald.github.io/cv-examples/
+
 // based on https://github.com/mtschirs/js-objectdetect
 // the jsfeat detector is much faster but only does one object at a time:
 // https://inspirit.github.io/jsfeat/sample_haar_face.html

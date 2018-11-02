@@ -1,3 +1,5 @@
+// https://kylemcdonald.github.io/cv-examples/
+
 var capture;
 var tracker;
 
@@ -46,7 +48,7 @@ function setup() {
         camera: true
     });
     tracker.on('track', function (event) {
-        clear();
+        cnv.clear();
         strokeWeight(4);
         stroke(255, 0, 0);
         noFill();

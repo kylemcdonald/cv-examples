@@ -1,3 +1,4 @@
+// https://kylemcdonald.github.io/cv-examples/
 // https://inspirit.github.io/jsfeat/sample_canny_edge.html
 
 var capture;
@@ -21,6 +22,25 @@ function setup() {
     capture.size(w, h);
     capture.hide();
     buffer = new jsfeat.matrix_t(w, h, jsfeat.U8C1_t);
+}
+
+function jsfeatToP5(src, dst) {
+    if (!dst || dst.width != src.cols || dst.height != src.rows) {
+        dst = createImage(src.cols, src.rows);
+    }
+    var n = src.data.length;
+    dst.loadPixels();
+    var srcData = src.data;
+    var dstData = dst.pixels;
+    for (var i = 0, j = 0; i < n; i++) {
+        var cur = srcData[i];
+        dstData[j++] = cur;
+        dstData[j++] = cur;
+        dstData[j++] = cur;
+        dstData[j++] = 255;
+    }
+    dst.updatePixels();
+    return dst;
 }
 
 function draw() {

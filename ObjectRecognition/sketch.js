@@ -1,3 +1,5 @@
+// https://kylemcdonald.github.io/cv-examples/
+
 var capture;
 var results;
 var w = 640,
