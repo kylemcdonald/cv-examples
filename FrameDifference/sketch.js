@@ -21,6 +21,13 @@ function setup() {
     capture.hide();
 }
 
+function copyImage(src, dst) {
+    var n = src.length;
+    if (!dst || dst.length != n) dst = new src.constructor(n);
+    while (n--) dst[n] = src[n];
+    return dst;
+}
+
 function draw() {
     capture.loadPixels();
     var total = 0;
